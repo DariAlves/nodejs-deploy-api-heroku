@@ -1,6 +1,7 @@
 import express from 'express';
 // import morgan from 'morgan';
 // import chalk from 'chalk';
+import cors from 'cors';
 import { run } from './config/db.js';
 import { config } from './config/config.js';
 import { gamesRouter } from './routes/games.routes.js';
@@ -9,6 +10,7 @@ run();
 
 const app = express();
 const port = config.port;
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
