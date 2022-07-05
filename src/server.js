@@ -1,6 +1,6 @@
 import express from 'express';
-// import morgan from 'morgan';
-// import chalk from 'chalk';
+import morgan from 'morgan';
+import chalk from 'chalk';
 import cors from 'cors';
 import { run } from './config/db.js';
 import { config } from './config/config.js';
@@ -15,15 +15,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(
-//   morgan(
-//     chalk.green('Method: :method\n') +
-//       chalk.blue('URL: :url\n') +
-//       chalk.yellow('Status: :status\n') +
-//       chalk.magenta('HTTP: :http-version\n') +
-//       chalk.red('Response-time: :response-time ms\n')
-//   )
-// );
+app.use(
+  morgan(
+    chalk.green('Method: :method\n') +
+      chalk.blue('URL: :url\n') +
+      chalk.yellow('Status: :status\n') +
+      chalk.magenta('HTTP: :http-version\n') +
+      chalk.red('Response-time: :response-time ms\n')
+  )
+);
 
 app.use('/games', gamesRouter);
 
