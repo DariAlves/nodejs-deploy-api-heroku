@@ -10,6 +10,9 @@ const router = Router();
 
 router.post('/', createGame);
 router.get('/', getGame);
+router.get('/teste', (request, response) => {
+  return response.send('Teste');
+});
 router.get('/:id', getOneGame);
 router.put('/:id', updateGame);
 router.delete('/:id', deleteGame);
